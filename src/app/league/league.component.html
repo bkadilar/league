@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-standing [teams]="teams"></app-standing>
+  </div>
+  <div class="col-md-6">
+    <app-score-result [scoreResults]="scoreResults" [teams]="teams" [settings]="settings"></app-score-result>
+  </div>
+  <hr>
+  <div class="col-md-12">
+    <button *ngIf="!settings.isFinished" class="btn btn-primary float-end mb-3 btn-sm" (click)="playWeek()" >Sonraki Hafta</button>
+    <button *ngIf="settings.isFinished" class="btn btn-success float-end mb-3 btn-sm" disabled >Lig Tamamlandı</button>
+  </div>
+  <hr>
+</div>
+<div *ngIf="settings.week>=4 && !settings.isFinished" class="row">
+  <div class="col-md-12  d-flex justify-content-center">
+    <table class="table table-striped w-50">
+      <thead>
+      <tr>
+        <th colspan="7" class="text-center">{{settings.week}}. Hafta Şampiyonluk Tahminleri</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let guess of championGuess;">
+        <td>
+          <img
+            alt="logo"
+            [src]="guess.team.logo"
+            class="me-2"
+            style="width: 20px"
+          />
+          {{ guess.team.name }}
+        </td>
+        <td>%{{guess.percentage}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="settings.isFinished" class="row">
+  <div class="col-md-12  d-flex justify-content-center">
+    <table class="table table-striped w-50">
+      <thead>
+      <tr>
+        <th colspan="7" class="text-center">Lig Şampiyonu</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr >
+        <td class="bg-success-subtle">
+          <img
+            alt="logo"
+            [src]="settings.champion.logo"
+            class="me-2"
+            style="width: 20px"
+          />
+          {{ settings.champion.name }}
+        </td>
+        <td class="bg-success-subtle">{{settings.champion.point}} Puan</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-fixture [fixture]="fixture"></app-fixture>
+  </div>
+</div>
+

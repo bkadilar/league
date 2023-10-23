@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan="7" class="text-center">Puan Durumu</th>
+  </tr>
+  <tr>
+    <th scope="col">Takımlar</th>
+    <th scope="col">P</th>
+    <th scope="col">O</th>
+    <th scope="col">G</th>
+    <th scope="col">B</th>
+    <th scope="col">M</th>
+    <th scope="col">Av.</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let team of teams; index as i">
+    <td>
+      <img
+        alt="logo"
+        [src]="team.logo"
+        class="me-2"
+        style="width: 20px"
+      />
+      {{ team.name }}
+    </td>
+    <td>{{ team.point }}</td>
+    <td>{{ team.played }}</td>
+    <td>{{ team.won }}</td>
+    <td>{{ team.drawn }}</td>
+    <td>{{ team.lost }}</td>
+    <td>{{ team.av }}</td>
+  </tr>
+  </tbody>
+</table>

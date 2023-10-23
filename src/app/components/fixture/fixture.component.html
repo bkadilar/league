@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan="7" class="text-center">Fikstür</th>
+  </tr>
+  <tr>
+    <th scope="col">Hafta</th>
+    <th scope="col">İç Saha</th>
+    <th scope="col">Deplasman</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let f of fixture;">
+    <td>{{f.week}}. Hafta</td>
+    <td>
+      <img
+        alt="logo"
+        [src]="f.home.logo"
+        class="me-2"
+        style="width: 20px"
+      />
+      {{ f.home.name }}
+    </td>
+    <td>
+      <img
+        alt="logo"
+        [src]="f.away.logo"
+        class="me-2"
+        style="width: 20px"
+      />
+      {{ f.away.name }}
+    </td>
+  </tr>
+  </tbody>
+</table>

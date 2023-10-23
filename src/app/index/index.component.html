@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-center">
+    <table class="table table-striped w-50 text-center">
+      <thead>
+      <tr>
+        <th  class="text-center">Lig Takımları</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let team of teams; index as i">
+        <td>
+          <img
+            alt="logo"
+            [src]="team.logo"
+            class="me-2"
+            style="width: 20px"
+          />
+          {{ team.name }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-12 d-flex justify-content-center">
+    <a class="btn btn-outline-success" routerLink="league">Simülasyon</a>
+    <a class="btn btn-outline-primary ms-1" routerLink="league">Simülasyon RxJs</a>
+  </div>
+</div>

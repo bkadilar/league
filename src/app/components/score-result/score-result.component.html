@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan="7" class="text-center">Maç Sonuçları</th>
+  </tr>
+  <tr *ngIf="settings.week>=1">
+    <td colspan="7" class="text-center fs-7">STS {{settings.week}}. Hafta Maç Sonuçları</td>
+  </tr>
+  </thead>
+  <tbody *ngIf="settings.week>=1">
+  <tr *ngFor="let scoreResult of scoreResults">
+    <td>
+      <img
+        alt="logo"
+        [src]="teams[scoreResult.team1].logo"
+        class="me-2"
+        style="width: 20px"
+      />
+      {{ teams[scoreResult.team1].name }}
+    </td>
+    <td class="text-center">{{scoreResult.team1Goals}} - {{scoreResult.team2Goals}}</td>
+    <td>
+      <span class="float-end">
+
+        {{ teams[scoreResult.team2].name }}
+        <img
+          alt="logo"
+          [src]="teams[scoreResult.team2].logo"
+          class="me-2"
+          style="width: 20px"
+        />
+      </span>
+    </td>
+  </tr>
+  </tbody>
+</table>
